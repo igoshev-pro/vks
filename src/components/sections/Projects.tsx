@@ -12,7 +12,7 @@ const projects = [
     category: 'СМР',
     client: 'ООО «Моспромстрой-М»',
     description: 'СМР включая общестроительные работы и монтаж инженерных систем в сблокированном здании АБК поста ЭЦ, здание компрессорной станции, здание отстойно-ремонтного корпуса.',
-    image: 'https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=1920&q=80',
+    image: '/images/metro.JPEG',
   },
   {
     title: 'ЖК «ПОЛЯНКА/44»',
@@ -20,7 +20,7 @@ const projects = [
     category: 'Инженерные системы',
     client: 'Codest International S.r.l.',
     description: 'Монтаж и пуско-наладка инженерных систем: насосные станции, пожаротушение, вентиляция, дымоудаление, кондиционирование, ИТП, смесительные узлы.',
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80',
+    image: '/images/polanka-2.jpg',
   },
   {
     title: 'МГУ им. Ломоносова',

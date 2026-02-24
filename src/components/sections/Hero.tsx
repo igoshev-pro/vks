@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -11,6 +10,7 @@ export default function Hero() {
   const logoRef = useRef<HTMLDivElement>(null)
   const subtitleRef = useRef<HTMLParagraphElement>(null)
   const taglineRef = useRef<HTMLParagraphElement>(null)
+  const yearRef = useRef<HTMLParagraphElement>(null)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -26,7 +26,7 @@ export default function Hero() {
         },
       })
 
-      // Анимация квадратов логотипа
+      // Анимация квадратов логотипа при загрузке
       gsap.fromTo(
         logoRef.current?.querySelectorAll('.logo-square') || [],
         { 
@@ -73,17 +73,41 @@ export default function Hero() {
         }
       )
 
-      // Fade out при скролле
-      gsap.to([logoRef.current, subtitleRef.current, taglineRef.current], {
-        opacity: 0,
-        y: -100,
+      // Анимация года
+      gsap.fromTo(
+        yearRef.current,
+        { y: 20, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power3.out',
+          delay: 1.3,
+        }
+      )
+
+      // Создаем timeline для fade анимации при скролле
+      const fadeTimeline = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'center center',
+          start: 'top top',
           end: 'bottom top',
-          scrub: true,
+          scrub: 1,
         },
       })
+
+      // Добавляем анимации в timeline
+      fadeTimeline
+        .to([logoRef.current, subtitleRef.current, taglineRef.current, yearRef.current], {
+          opacity: 1,
+          y: 0,
+          duration: 0.1,
+        })
+        .to([logoRef.current, subtitleRef.current, taglineRef.current, yearRef.current], {
+          opacity: 0,
+          y: -100,
+          duration: 1,
+        }, '+=0.3')
     }, sectionRef)
 
     return () => ctx.revert()
@@ -154,15 +178,15 @@ export default function Hero() {
         </p>
 
         {/* Год */}
-        <p className="mt-8 text-white/40 text-sm md:text-base">
+        <p ref={yearRef} className="mt-8 text-white/40 text-sm md:text-base">
           с 2012 года
         </p>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Индикатор прокрутки */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
         <span className="text-white/40 text-xs uppercase tracking-[0.3em]">
-          Scroll
+          Листайте вниз
         </span>
         <div className="w-px h-16 bg-gradient-to-b from-primary to-transparent animate-pulse" />
       </div>

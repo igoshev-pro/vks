@@ -1,13 +1,16 @@
-
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { Phone, Mail, Globe, MapPin } from 'lucide-react'
 
 gsap.registerPlugin(ScrollTrigger)
 
 export default function Contacts() {
   const sectionRef = useRef<HTMLElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
+  
+  // Получаем текущий год динамически
+  const currentYear = new Date().getFullYear()
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -34,7 +37,7 @@ export default function Contacts() {
     <section
       id="contacts"
       ref={sectionRef}
-      className="relative py-32 px-6 md:px-12 bg-[#0a0a0a]"
+      className="relative pt-20 pb-6 px-6 md:px-12 bg-[#0a0a0a]"
     >
       {/* Фоновый текст */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
@@ -59,7 +62,9 @@ export default function Contacts() {
               href="tel:+74950888082"
               className="group p-6 bg-white/5 rounded-2xl hover:bg-primary/10 transition-all"
             >
-              <div className="text-3xl mb-4">📞</div>
+              <div className="mb-4 flex justify-center">
+                <Phone className="w-10 h-10 text-primary" />
+              </div>
               <p className="text-white/50 text-sm mb-2">Телефон</p>
               <p className="text-white text-xl font-medium group-hover:text-primary transition-colors">
                 +7 (495) 088-80-82
@@ -70,7 +75,9 @@ export default function Contacts() {
               href="mailto:info@gk-vks.ru"
               className="group p-6 bg-white/5 rounded-2xl hover:bg-primary/10 transition-all"
             >
-              <div className="text-3xl mb-4">✉️</div>
+              <div className="mb-4 flex justify-center">
+                <Mail className="w-10 h-10 text-primary" />
+              </div>
               <p className="text-white/50 text-sm mb-2">Email</p>
               <p className="text-white text-xl font-medium group-hover:text-primary transition-colors">
                 info@gk-vks.ru
@@ -83,7 +90,9 @@ export default function Contacts() {
               rel="noopener noreferrer"
               className="group p-6 bg-white/5 rounded-2xl hover:bg-primary/10 transition-all"
             >
-              <div className="text-3xl mb-4">🌐</div>
+              <div className="mb-4 flex justify-center">
+                <Globe className="w-10 h-10 text-primary" />
+              </div>
               <p className="text-white/50 text-sm mb-2">Сайт</p>
               <p className="text-white text-xl font-medium group-hover:text-primary transition-colors">
                 gk-vks.ru
@@ -92,8 +101,10 @@ export default function Contacts() {
           </div>
 
           {/* Адрес */}
-          <div className="p-8 bg-white/5 rounded-2xl mb-12">
-            <div className="text-3xl mb-4">📍</div>
+          <div className="p-8 bg-white/5 rounded-2xl mb-20">
+            <div className="mb-4 flex justify-center">
+              <MapPin className="w-10 h-10 text-primary" />
+            </div>
             <p className="text-white/50 text-sm mb-2">Адрес</p>
             <p className="text-white text-lg">
               117342, Москва, ул. Бутлерова, дом 17Б, эт. 2, пом. XI К 60Ж, оф. 25
@@ -103,19 +114,19 @@ export default function Contacts() {
             </p>
           </div>
 
-          <button className="group inline-flex items-center gap-4 px-8 py-4 bg-primary hover:bg-primary-light rounded-full transition-all">
+          {/* <button className="group inline-flex items-center gap-4 px-8 py-4 bg-primary hover:bg-primary-light rounded-full transition-all">
             <span className="text-white font-medium text-lg">Оставить заявку</span>
             <span className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/30 transition-all">
               <span className="text-white">→</span>
             </span>
-          </button>
+          </button> */}
         </div>
       </div>
 
       {/* Footer */}
-      <div className="relative z-10 mt-24 pt-8 border-t border-white/10">
+      <div className="relative z-10 mt-12 pt-6 border-t border-white/10">
         <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-white/30 text-sm">
-          <span>© 2024 ООО «ГК «ВКС». Все права защищены.</span>
+          <span>© {currentYear} ООО «ГК «ВКС». Все права защищены.</span>
           <span>Строительство · Реставрация · Инжиниринг</span>
         </div>
       </div>

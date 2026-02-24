@@ -88,7 +88,7 @@ export default function Directions() {
                 backgroundPosition: 'center',
               }}
             >
-              <div className="absolute inset-0 bg-black/70" />
+              <div className="absolute inset-0 bg-black/50" />
             </div>
 
             <div className="relative z-10 text-center px-6 max-w-4xl mt-8">

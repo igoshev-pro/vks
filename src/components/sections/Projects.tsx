@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -149,7 +148,7 @@ export default function Projects() {
                   backgroundImage: `url(${project.image})`,
                 }}
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/40" />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent" />
             </div>
 
             {/* Контент */}
@@ -159,7 +158,7 @@ export default function Projects() {
                   <span className="px-3 py-1 bg-primary text-white text-sm font-bold rounded">
                     {project.category}
                   </span>
-                  <span className="text-white/40 text-sm">
+                  <span className="text-white/60 text-sm">
                     Заказчик: {project.client}
                   </span>
                 </div>
@@ -172,14 +171,14 @@ export default function Projects() {
                   {project.subtitle}
                 </p>
 
-                <p className="text-white/60 text-lg mt-6 max-w-xl leading-relaxed">
+                <p className="text-white/70 text-lg mt-6 max-w-xl leading-relaxed">
                   {project.description}
                 </p>
               </div>
             </div>
 
             {/* Номер проекта */}
-            <div className="absolute bottom-10 right-6 md:right-12 text-white/5 text-[12rem] md:text-[16rem] font-black leading-none pointer-events-none">
+            <div className="absolute bottom-10 right-6 md:right-12 text-white/10 text-[12rem] md:text-[16rem] font-black leading-none pointer-events-none">
               0{index + 1}
             </div>
           </div>

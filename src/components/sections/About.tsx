@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -67,7 +66,8 @@ export default function About() {
           backgroundImage: 'url(https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80)',
         }}
       >
-        <div className="absolute inset-0 bg-black/85" />
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/30" />
       </div>
 
       <div ref={contentRef} className="relative z-10 container mx-auto px-6 md:px-12">
@@ -81,7 +81,7 @@ export default function About() {
             в строительстве
           </h2>
 
-          <div className="space-y-6 text-white/70 text-lg md:text-xl leading-relaxed max-w-3xl">
+          <div className="space-y-6 text-white/80 text-lg md:text-xl leading-relaxed max-w-3xl">
             <p>
               ООО «ГК «ВКС» с 2012 года работает на рынке строительных услуг. 
               Мы — динамично развивающаяся компания, зарекомендовавшая себя 
@@ -108,7 +108,7 @@ export default function About() {
               <div className="text-4xl md:text-5xl lg:text-6xl font-black text-primary">
                 {stat.value}
               </div>
-              <div className="text-white/50 text-sm mt-2 uppercase tracking-wider">
+              <div className="text-white/60 text-sm mt-2 uppercase tracking-wider">
                 {stat.label}
               </div>
             </div>

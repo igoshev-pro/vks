@@ -129,8 +129,8 @@ export default function Hero() {
           backgroundPosition: 'center',
         }}
       >
-        <div className="absolute inset-0 bg-black/70" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60" />
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40" />
       </div>
 
       {/* Контент */}
@@ -172,20 +172,20 @@ export default function Hero() {
         {/* Слоган */}
         <p
           ref={taglineRef}
-          className="text-white/70 text-lg md:text-xl lg:text-2xl font-light tracking-wide"
+          className="text-white text-lg md:text-xl lg:text-2xl font-light tracking-wide"
         >
           Строительство · Реставрация · Инжиниринг
         </p>
 
         {/* Год */}
-        <p ref={yearRef} className="mt-8 text-white/40 text-sm md:text-base">
+        <p ref={yearRef} className="mt-8 text-white/60 text-sm md:text-base">
           с 2012 года
         </p>
       </div>
 
       {/* Индикатор прокрутки */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
-        <span className="text-white/40 text-xs uppercase tracking-[0.3em]">
+        <span className="text-white/60 text-xs uppercase tracking-[0.3em]">
           Листайте вниз
         </span>
         <div className="w-px h-16 bg-gradient-to-b from-primary to-transparent animate-pulse" />
